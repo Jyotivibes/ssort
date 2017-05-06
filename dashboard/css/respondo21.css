@@ -1,0 +1,31 @@
+@media only screen and (max-width: 992px) {
+.navbar-header .navbar-toggle {
+    float: right;
+    padding: 0 15px;
+    line-height: 60px;
+    border: 0px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0px;
+    display: inline-block;
+    border-radius: 0px;
+}
+.bg-title .breadcrumb {
+    float: right;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+[class^="ti-"], [class*=" ti-"] {
+    font-family: 'themify';    
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 22px;
+    color:#fff;
+   
+}
+
+}
+
+

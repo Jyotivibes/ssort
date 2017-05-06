@@ -1,0 +1,5 @@
+#chartdiv {
+  width: 100%;
+  height:208px;
+}	
+.amcharts-chart-div a{display: none !important;}

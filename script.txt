@@ -1,0 +1,13 @@
+<?php
+
+$sql=mysql_query("SELECT * FROM essort_application_header");
+while($row=mysql_fetch_array($sql))
+{
+	$paddedNum = sprintf("%06d",$row['usr_application_id']);
+    $roleode="APP";
+    $usr_application_no=$roleode."".$paddedNum;
+	echo $sql="UPDATE essort_application_header SET usr_application_no='".$usr_application_no."' WHERE usr_application_id='".$row['usr_application_id']."'";
+
+}
+
+?>

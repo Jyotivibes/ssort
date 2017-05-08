@@ -319,6 +319,53 @@ class Student extends Connection
 		
 	}
 	####################################################################################################################
+	function nooffeerecieved()
+	{
+	
+	    $date =date('Y-m-d');
+		$month=date('F',strtotime($date));
+
+		$montharr = array("April", "May", "June");
+		$monthsecarr = array("July", "August", "September");
+		$monththirdcarr = array("October", "November", "December");
+		$monthfourthcarr = array("October", "November", "December");
+		if (in_array($month, $montharr))
+		{
+			$type='first';
+		}
+		elseif(in_array($month, $monthsecarr))
+		{
+			$type='second';
+
+		}
+		elseif(in_array($month, $monththirdcarr))
+		{
+			$type='third';
+
+		}
+		else
+		{
+			$type='fourth';
+
+		}
+		$stusql=mysql_query("SELECT * FROM essort_user_relation"); 
+		$total_no_of_students= mysql_num_rows($stusql);
+		   while($rowstff=mysql_fetch_array($stusql))
+			{
+				if($rowstff['stu_id']!='')
+				{
+					$feearray[]=$rowstff['stu_id'];
+				}
+
+			}
+		$feearray=array_filter($feearray);
+		 $feeid=implode(",",$feearray);
+		$feerecieved=mysql_num_rows(mysql_query("SELECT * FROM essort_fee_transaction
+        WHERE user_id IN (".$feeid.") AND fee_quarter='".$type."'" ) );
+		return $feerecieved;
+		
+	}
+	####################################################################################################################
   
 }
 

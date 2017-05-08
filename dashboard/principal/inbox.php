@@ -723,7 +723,7 @@ if (url.indexOf('?') > -1){
                 var params = {'type':''+selectedCountry+''};
                 //alert(params);
                 var pathname = window.location.pathname;
-                var url = '<?php echo HTTP_SERVER;?>/dashboard/school-admin/school-inbox.php?' + jQuery.param(params);
+                var url = '<?php echo HTTP_SERVER;?>/dashboard/principal/inbox.php?' + jQuery.param(params);
                 //url.replace(url.split('/')[5], 'edited');
                 //url += '&type='+selectedCountry;
 

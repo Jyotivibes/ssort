@@ -1429,6 +1429,23 @@ class General extends Connection
     }
 
     ###################################################################################################################
+	function getHolidayNotificationarr()
+    {
+        $sql = mysql_query("SELECT DATE_FORMAT(off_day,'%d %b %Y') as date
+            FROM essort_holidays  WHERE occassion_type='Holiday' GROUP BY occassion") OR DIE(mysql_error());
+			$arr=array();
+        if (mysql_num_rows($sql) > 0) {
+			
+            while($row=mysql_fetch_array($sql))
+			{
+				$arr[]=$row['date'];
+			}
+			return $arr;
+        } else {
+            return $arr;
+        }
+    }
+    ###################################################################################################################
     function getCircularActivities()
     {
 		$select = mysql_query("SELECT * FROM essort_circular_activities WHERE STR_TO_DATE(valid_till, '%Y-%m-%d')>='" . date('Y-m-d') . "'");
@@ -2349,6 +2366,23 @@ class General extends Connection
             }
         }
     }
+	
+	###################################FOR REST PASSWORD ####################################
+	function RESETPASS(){
+	$class='';
+	
+		while($rowclass=mysql_fetch_array($sqlclassesed)) 
+		{	
+			$selected="";
+			if($rowclass['class_id']==DEFAULT_CLASS)
+			{
+				$selected='selected';
+			}
+			$class.='<option value="'.$rowclass['class_id'].'" '.$selected.'>'.$rowclass['class_name'].'</option>';
+		}
+		return $class;
+		}
+		#######################FOR REST PASSWORD ####################################
 }
 
 ?>

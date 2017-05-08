@@ -32,6 +32,7 @@ if (isset($_SESSION['USER']['USER_NAME']) && !empty($_SESSION['USER']['USER_NAME
 	$salmonthlydata = $obj->MONTHLYSALARY(CURRENT_STAFF_SAL,CURRENT_SESSION);
 	$rowtble  = $obj2->staffmonthwiseatt(DEFAULT_STAFF,CURRENT_SESSION);
 	$sqlclasssectionstaff  = $obj2->presentinsession(DEFAULT_STAFF,CURRENT_SESSION);
+	$holidayss  = $obj->getHolidayNotificationarr();
 	$todaySdate=date("Y-m-d");
 	$currstu=$obj->getWorkingDays(SESSION_START_DATE,$todaySdate,$holidayss);
 	$sqlclasssectionstaffab=$currstu-$sqlclasssectionstaff;  

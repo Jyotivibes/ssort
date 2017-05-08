@@ -21,7 +21,7 @@ $message ='';
 if (isset($_SESSION['USER']['USER_NAME']) && !empty($_SESSION['USER']['USER_NAME']) && !empty($_SESSION['USER']['ROLE_ID']) && ($_SESSION['USER']['ROLE_ID'] == 'Principal')) {
     $user_id = $_SESSION['USER']['USER_NAME'];
     require_once('../../' . $_SESSION['USER']['DB_NAME'] . '/classes/connection.php');
-    require_once('../../classes/general_class.php');
+    require_once('../../classes/general_class.php'); 
     $obj = new General();
 	require_once('../../classes/staff_class.php');
 	$obj2 = new Staff();
@@ -230,7 +230,7 @@ if (isset($_SESSION['USER']['USER_NAME']) && !empty($_SESSION['USER']['USER_NAME
             </div>
         </div>
     </div>
-    <!--en col-->
+    <!--en colll-->
     <div class="col-sm-6 col-xs-12">
         <div class="col-sm-12 col-xs-12 my-boxnew shadow-a">
             <div class="col-md-6">

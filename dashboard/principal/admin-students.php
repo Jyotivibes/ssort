@@ -21,9 +21,11 @@
             require_once('../../' . $_SESSION['USER']['DB_NAME'] . '/classes/connection.php');
             require_once('../../classes/general_class.php');
             $obj = new General();
+			require_once('../../classes/staff_class.php');
 			$obj2 = new Staff();
-	        require_once('../../classes/student_class.php');
-            include_once '../stastics.php';
+			require_once('../../classes/student_class.php');
+			$obj3 = new Student();
+	        include_once '../stastics.php';
             $formErr='';
             if(isset($_REQUEST['EditA']))
             {
@@ -42,7 +44,14 @@
             }
         }
 		$stuleaveidarr  = $obj2->getStaffonLeave();
-
+		
+		$stuidarr = $obj->ALLSTUWITHFEE(DEFAULT_CLASS,$sqlsection['section_id']);
+		$rowstutble = $obj->getAttendnce(DEFAULT_STU);
+		$class="";
+		$section="";
+		$num_of_students = $obj3->getnoofstudents($class,$section);
+		$feerecieved  = $obj3->nooffeerecieved();
+		$feepending  = $num_of_students-$feerecieved;
     } else {
         echo "<script>window.location='" . HTTP_SERVER . "/index.php';</script>";
     }
@@ -224,8 +233,8 @@
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group">
                             <select class="form-control selattside" id="salyear">
-                             <option value="2016-2017" <?php if (DEFAULT_SESSION == '2016-2017') echo 'selected'; ?>>2016-2017</option>
-                             <option value="2017-2018" <?php if (DEFAULT_SESSION == '2017-2018') echo 'selected'; ?>>2017-2018</option>
+                             <option value="2016-2017" <?php if (CURRENT_SESSION == '2016-2017') echo 'selected'; ?>>2016-2017</option>
+                             <option value="2017-2018" <?php if (CURRENT_SESSION == '2017-2018') echo 'selected'; ?>>2017-2018</option>
                          </select>
                      </div>
                  </div>
